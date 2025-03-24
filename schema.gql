@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: Int!
+  name: String!
+  price: Int!
+  stock: Int!
+}
+
+type Order {
+  id: Int!
+  customerName: String!
+  totalPrice: Int!
+  products: [Product!]!
+}
+
+type Query {
+  products: [Product!]!
+  orders: [Order!]!
+  order(id: Int!): Order!
+  ordersByCustomer(customerName: String!): [Order!]!
+}
+
+type Mutation {
+  createProduct(input: CreateProductInput!): Product!
+  createOrder(input: CreateOrderInput!): Order!
+}
+
+input CreateProductInput {
+  name: String!
+  price: Int!
+  stock: Int!
+}
+
+input CreateOrderInput {
+  customerName: String!
+  productIds: [Int!]!
+}
